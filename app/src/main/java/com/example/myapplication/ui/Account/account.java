@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.databinding.AccountBinding;
 import com.example.myapplication.ui.Login.Login;
+import com.example.myapplication.ui.User.EditProfileActivity;
 import com.example.myapplication.ui.UserListedItem.UserListedItems;
 import com.example.myapplication.ui.WishList.WishListItems;
 
@@ -18,6 +19,7 @@ public class account extends Fragment implements View.OnClickListener {
 
 
     public AccountBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -26,7 +28,9 @@ public class account extends Fragment implements View.OnClickListener {
         binding.LogOutBtn.setOnClickListener(this);
         binding.ListedItemsBtn.setOnClickListener(this);
         binding.WishListBtn.setOnClickListener(this);
+        binding.editbutton.setOnClickListener(this);
         return binding.getRoot();
+
 
     }
 
@@ -43,8 +47,21 @@ public class account extends Fragment implements View.OnClickListener {
 
         } else if (v.getId() == binding.WishListBtn.getId()) {
 
-        Intent intent = new Intent(getContext(), WishListItems.class);
-        startActivity(intent);
+            Intent intent = new Intent(getContext(), WishListItems.class);
+            startActivity(intent);
+        } else if (v.getId() == binding.editbutton.getId()) {
+            // Handle editButton click
+            // Navigate to EditProfileActivity
+            Intent intent = new Intent(getContext(), EditProfileActivity.class);
+
+            // Pass current user information to EditProfileActivity
+            intent.putExtra("currentFullName", binding.editTextFullName.getText().toString());
+            intent.putExtra("currentPhoneNumber", binding.editTextPhoneNumber.getText().toString());
+            intent.putExtra("currentPassword", binding.editTextTextPassword.getText().toString());
+            startActivity(intent);
+
+
+        }
     }
-    }
+
 }

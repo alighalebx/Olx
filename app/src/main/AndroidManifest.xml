@@ -48,8 +48,13 @@
             android:name=".ui.Home.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.User.EditProfileActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".ui.Login.Login"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

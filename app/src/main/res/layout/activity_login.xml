@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="1dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginEnd="1dp"
+    android:layout_marginBottom="1dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:inputType="none"
+        android:text="Login into your OLX account"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/EmailText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Email"
+        android:drawableStart="@drawable/email_ico"
+        android:drawablePadding="8dp"
+        android:elevation="8dp"
+        android:background="@drawable/edit_text_custom"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Password"
+        android:drawableStart="@drawable/password_ico"
+        android:drawablePadding="8dp"
+        android:elevation="8dp"
+        android:background="@drawable/edit_text_custom"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/LoginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Login"
+        android:backgroundTint="@color/red"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:elevation="8dp" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:text="New to OLX ?create an account"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textColor="@color/red" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+</LinearLayout>

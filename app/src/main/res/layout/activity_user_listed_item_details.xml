@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/ImageUserListedDetail"
+        android:layout_width="349dp"
+        android:layout_height="265dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/TitleUserListedDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/buy" />
+
+    <TextView
+        android:id="@+id/TitleUserListedDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="52dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/PriceUserListedDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Item Name" />
+
+    <TextView
+        android:id="@+id/PriceUserListedDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/RemoveBtnUserListedDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Price: $0.00" />
+
+    <Button
+        android:id="@+id/RemoveBtnUserListedDetail"
+        android:layout_width="132dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="152dp"
+        android:backgroundTint="@color/dark_red"
+        android:text="Remove Item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

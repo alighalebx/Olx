@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
@@ -25,7 +27,10 @@ import com.example.myapplication.ui.UserListedItem.UserListedItems;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -45,6 +50,31 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
 
     File imageFile ;
     // Define ActivityResultLauncher for picking visual media
+
+    private File saveImageToFile(Bitmap bitmap) {
+        // Create a file to save the image
+        File imagesDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File imageFile = new File(imagesDir, "captured_image.jpg");
+
+        try {
+            // Convert bitmap to byte array
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            byte[] bitmapData = bos.toByteArray();
+
+            // Write the bytes to the file
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(bitmapData);
+            fos.flush();
+            fos.close();
+
+            return imageFile;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     ActivityResultLauncher<PickVisualMediaRequest> pickMedia = registerForActivityResult(
             new ActivityResultContracts.PickVisualMedia(),
             uri -> {
@@ -69,6 +99,23 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
                 }
             }
     );
+    ActivityResultLauncher<Void> takePicture = registerForActivityResult(CameraResultContract.TAKE_PHOTO,
+            result -> {
+                if (result != null) {
+
+
+                    File imageFilee = saveImageToFile(result);
+                    imageFile = imageFilee;
+                    // Display the saved image
+                    loadImageIntoImageView(Uri.fromFile(imageFile));
+                }
+            }
+    );
+
+
+
+
+
 
     private String getRealPathFromURI(Uri uri) {
         String[] projection = { MediaStore.Images.Media.DATA };
@@ -98,6 +145,8 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
         // Set click listener for the registration button
         binding.PostAdBtn.setOnClickListener(this);
         binding.browseImgBtn.setOnClickListener(this);
+        binding.captureBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -148,9 +197,19 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
                     .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
                     .build());
         }
+        else if (v.getId() == binding.captureBtn.getId()) {
+            // Launch camera to capture image
+            // Ensure that you have appropriate permissions in your AndroidManifest.xml file
+            takePicture.launch(null);
+        }
 
 
 
+
+    }
+    private void loadImageIntoImageView(Bitmap bitmap) {
+        // Display the captured image in your ImageView
+        binding.imageView.setImageBitmap(bitmap);
     }
     private void loadImageIntoImageView(Uri uri) {
         Picasso.get()

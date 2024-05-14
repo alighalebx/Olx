@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +29,7 @@ public class BuyFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private BuyListAdapter adapter;
-    private EditText searchBar;
+    private SearchView searchBar;
 
     private static final String BASE_URL = "https://olx.azurewebsites.net/";
     private static final String TAG = "BuyFragment";
@@ -71,20 +72,23 @@ public class BuyFragment extends Fragment {
         });
 
         // Implement search functionality
-        searchBar.addTextChangedListener(new TextWatcher() {
+        // Assuming searchBar is your SearchView
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                adapter.filter(s.toString()); // Call filter method on adapter
-                Log.e(TAG, "seach " + s.toString());
-
+            public boolean onQueryTextSubmit(String query) {
+                // This method is called when the user submits the query
+                return false; // Return true if the query has been handled
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public boolean onQueryTextChange(String newText) {
+                // This method is called when the text in the SearchView changes
+                adapter.filter(newText); // Call filter method on adapter
+                Log.e(TAG, "search " + newText);
+                return true; // Return true to indicate that the text change has been handled
+            }
         });
+
 
         return view;
     }

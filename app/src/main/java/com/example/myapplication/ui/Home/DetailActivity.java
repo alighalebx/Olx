@@ -3,6 +3,7 @@ package com.example.myapplication.ui.Home;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,7 +53,17 @@ public class DetailActivity extends AppCompatActivity {
             itemNameTextView.setText(itemName);
             itemPriceTextView.setText("Price: $" + String.valueOf(itemPrice));
             Button wishlistBtn = findViewById(R.id.buy_button);
+            Button callBtn = findViewById(R.id.call_button);
+            callBtn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:"+itemPhoneNumber));
+                    startActivity(intent);
+                }
 
+
+            });
             String productId=extras.getString("ItemId");
             Toast.makeText(DetailActivity.this, productId ,Toast.LENGTH_SHORT).show();
 

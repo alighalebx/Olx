@@ -23,6 +23,7 @@ import com.example.myapplication.ui.User.UserResponse;
 import com.example.myapplication.ui.UserListedItem.UserListedItemDetails;
 import com.example.myapplication.ui.UserListedItem.UserListedItems;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
@@ -53,6 +54,7 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
                         // Now you can use this imageFile object to send it as a file
                         // For example, you can pass it to a method to send it somewhere
                         // Example: sendFile(imageFile);
+                        loadImageIntoImageView(uri);
                         String message = "Image file path: " + imageFile.getAbsolutePath();
                         showToast(message);
                     } else {
@@ -149,6 +151,11 @@ public class PostAd extends AppCompatActivity implements View.OnClickListener {
 
 
 
+    }
+    private void loadImageIntoImageView(Uri uri) {
+        Picasso.get()
+                .load(uri)
+                .into(binding.imageView);
     }
 
 

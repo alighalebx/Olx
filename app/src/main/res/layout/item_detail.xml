@@ -51,8 +51,26 @@
         android:layout_marginTop="152dp"
         android:backgroundTint="@color/dark_red"
         android:text="@string/buy_item"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_price_detail" />
+
+    <Button
+        android:id="@+id/call_button"
+        android:layout_width="167dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="32dp"
+
+        android:backgroundTint="@color/light_red"
+        android:drawableLeft="@drawable/baseline_add_call_24"
+
+        android:text="@string/call"
+        app:layout_constraintBottom_toTopOf="@+id/buy_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_price_detail" />
 
@@ -61,12 +79,15 @@
         android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginStart="27dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="27dp"
+        android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toTopOf="@+id/buy_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_price_detail"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/item_name_detail"
+        app:layout_constraintVertical_bias="0.0">
 
     </Space>
 
@@ -74,33 +95,23 @@
         android:id="@+id/UserNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="User Name:"
-        app:layout_constraintBottom_toTopOf="@+id/PhoneNumberText"
         app:layout_constraintEnd_toStartOf="@+id/UserNameTextView"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/item_image_detail"
-        app:layout_constraintTop_toBottomOf="@+id/item_price_detail"
-        app:layout_constraintVertical_bias="0.563" />
-
-    <TextView
-        android:id="@+id/UserNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/item_image_detail"
         app:layout_constraintTop_toBottomOf="@+id/item_price_detail" />
 
     <TextView
         android:id="@+id/PhoneNumberText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="264dp"
-        android:layout_marginBottom="40dp"
         android:text="Phone Number:"
-        app:layout_constraintBottom_toTopOf="@+id/buy_button"
-        app:layout_constraintEnd_toEndOf="@+id/item_image_detail"
-        app:layout_constraintStart_toStartOf="@+id/UserNameText" />
+        app:layout_constraintBottom_toTopOf="@+id/call_button"
+        app:layout_constraintEnd_toEndOf="@+id/UserNameText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/UserNameText"
+        app:layout_constraintTop_toBottomOf="@+id/UserNameText" />
 
     <TextView
         android:id="@+id/PhoneNumberTextView"
@@ -108,10 +119,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/buy_button"
+        app:layout_constraintBottom_toTopOf="@+id/call_button"
         app:layout_constraintEnd_toEndOf="@+id/UserNameTextView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/UserNameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/UserNameTextView"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintTop_toBottomOf="@+id/UserNameTextView" />
+
+    <TextView
+        android:id="@+id/UserNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/item_image_detail"
+        app:layout_constraintTop_toBottomOf="@+id/item_price_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

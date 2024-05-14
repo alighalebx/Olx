@@ -3,8 +3,12 @@
     <string name="buy">Buy</string>
     <string name="todo">TODO</string>
     <string name="buy_item">Buy Item</string>
+    <string name="call">Call</string>
     <string name="account">Account</string>
     <string name="home">Home</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_items">Search items...</string>
+
+
 </resources>

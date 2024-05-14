@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    app:cardCornerRadius="8dp"
     app:cardBackgroundColor="#EDEEEE">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+
+        android:background="@drawable/search_view_bg"
         android:padding="16dp">
 
         <ImageView
@@ -31,12 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="36dp"
                 android:textColor="@color/black" />
 
         </LinearLayout>
